@@ -55,18 +55,20 @@ const newCarousel = carouselMaker()
 const carouselContainer = document.querySelector('.carousel-container');
 carouselContainer.appendChild(newCarousel);
 
+
+
 var slideIndex = 1;
 showSlides(slideIndex);
 
 function next(n) {
-  showSlides(sildeIndex += n);
+  showSlides(slideIndex += n);
 }
 
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName('slide');
   if(n > slides.length) {
-    slideIndex = 1
+    slideIndex = 1;
   }
   if (n < 1) {
     slideIndex = slides.length;
@@ -78,4 +80,13 @@ function showSlides(n) {
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 5000);
+
+  const left = document.querySelector('.left-button');
+  left.addEventListener('click', event => {
+    next(-1);
+  });
+  const right = document.querySelector('.right-button');
+  right.addEventListener('click', event => {
+    next(1);
+  });
 }
