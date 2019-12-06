@@ -28,4 +28,4 @@ function Tabs(data) {
     return tab;
 }
 
-const tabs = document.querySelector('.tabs')
+const tabs = document.querySelector('.topics')
