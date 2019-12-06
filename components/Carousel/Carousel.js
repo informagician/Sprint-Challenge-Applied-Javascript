@@ -17,10 +17,7 @@
     <div class="right-button"> > </div>
   </div>
 */
-const wait = time => new Promise((resolve) => setTimeout(resolve, time));
 
-for 
-wait(3000).then(() => );
 
 function carouselMaker() {
   const carousel = document.createElement('div'),
@@ -36,9 +33,13 @@ function carouselMaker() {
   rightbtn.classList.add('right-button');
 
   img1.setAttribute('src', './assets/carousel/mountains.jpeg');
+  img1.setAttribute('class', 'slide');
   img2.setAttribute('src', './assets/carousel/computer.jpeg');
+  img2.setAttribute('class', 'slide');
   img3.setAttribute('src', './assets/carousel/trees.jpeg');
+  img3.setAttribute('class', 'slide');
   img4.setAttribute('src', './assets/carousel/turntable.jpeg');
+  img4.setAttribute('class', 'slide');
 
   carousel.appendChild(leftbtn);
   carousel.appendChild(img1);
@@ -53,3 +54,28 @@ function carouselMaker() {
 const newCarousel = carouselMaker()
 const carouselContainer = document.querySelector('.carousel-container');
 carouselContainer.appendChild(newCarousel);
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function next(n) {
+  showSlides(sildeIndex += n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName('slide');
+  if(n > slides.length) {
+    slideIndex = 1
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000);
+}
