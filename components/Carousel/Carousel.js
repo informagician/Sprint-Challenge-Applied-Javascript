@@ -17,3 +17,39 @@
     <div class="right-button"> > </div>
   </div>
 */
+const wait = time => new Promise((resolve) => setTimeout(resolve, time));
+
+for 
+wait(3000).then(() => );
+
+function carouselMaker() {
+  const carousel = document.createElement('div'),
+        leftbtn = document.createElement('div'),
+        img1 = document.createElement('img'),
+        img2 = document.createElement('img'),
+        img3 = document.createElement('img'),
+        img4 = document.createElement('img'),
+        rightbtn = document.createElement('div');
+  
+  carousel.classList.add('carousel');
+  leftbtn.classList.add('left-button');
+  rightbtn.classList.add('right-button');
+
+  img1.setAttribute('src', './assets/carousel/mountains.jpeg');
+  img2.setAttribute('src', './assets/carousel/computer.jpeg');
+  img3.setAttribute('src', './assets/carousel/trees.jpeg');
+  img4.setAttribute('src', './assets/carousel/turntable.jpeg');
+
+  carousel.appendChild(leftbtn);
+  carousel.appendChild(img1);
+  carousel.appendChild(img2);
+  carousel.appendChild(img3);
+  carousel.appendChild(img4);
+  carousel.appendChild(rightbtn);
+
+  return carousel;
+}
+
+const newCarousel = carouselMaker()
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.appendChild(newCarousel);
